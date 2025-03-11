@@ -11,4 +11,9 @@ class ThucTapController extends Controller
         $nsx = Nhasanxuat::all();
         return view('nsx.index', ['nsx' => $nsx]);
     }
+
+    public function trashed(){
+        $nhasanxuats = Nhasanxuat::onlyTrashed()->get();
+        return view('nhasanxuats.trashed', compact('nhasanxuats'));
+    }
 }
